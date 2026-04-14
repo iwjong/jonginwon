@@ -1,0 +1,6 @@
+[12-Dec-2024 02:36:28 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789
+[12-Dec-2024 02:37:10 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789
+[12-Dec-2024 02:37:12 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789
+[12-Dec-2024 02:37:54 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789
+[12-Dec-2024 02:39:16 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789
+[12-Dec-2024 02:39:17 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_core_ristretto255_sub() in /home4/frendesi/public_html/jonginwon/projects/06-livingworld/wp-login.php on line 789

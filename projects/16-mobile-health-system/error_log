@@ -1,0 +1,5 @@
+[12-Dec-2024 02:32:37 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_kx_keypair() in /home4/frendesi/public_html/jonginwon/projects/16-mobile-health-system/wp-login.php on line 682
+[12-Dec-2024 02:32:39 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_kx_keypair() in /home4/frendesi/public_html/jonginwon/projects/16-mobile-health-system/wp-login.php on line 682
+[12-Dec-2024 02:32:41 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_kx_keypair() in /home4/frendesi/public_html/jonginwon/projects/16-mobile-health-system/wp-login.php on line 682
+[12-Dec-2024 02:33:26 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_kx_keypair() in /home4/frendesi/public_html/jonginwon/projects/16-mobile-health-system/wp-login.php on line 682
+[12-Dec-2024 02:33:27 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_kx_keypair() in /home4/frendesi/public_html/jonginwon/projects/16-mobile-health-system/wp-login.php on line 682

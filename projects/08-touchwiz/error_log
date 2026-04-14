@@ -1,0 +1,140 @@
+[12-Dec-2024 02:20:56 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:20:56 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:20:56 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:20:56 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:20:56 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:20:57 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:20:57 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:20:57 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:20:57 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:20:57 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:20:58 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:20:58 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:20:58 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:00 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:00 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:00 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:00 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:00 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:01 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:01 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:01 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:01 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:01 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:02 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:02 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:02 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:02 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:02 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:03 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:03 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:03 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:03 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:03 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:04 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:04 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:04 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:04 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:04 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:05 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:05 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:05 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:05 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:05 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:08 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:08 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:08 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:10 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:10 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:10 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:10 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:10 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
+[12-Dec-2024 02:21:11 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 303
+[12-Dec-2024 02:21:11 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 315
+[12-Dec-2024 02:21:11 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1100
+[12-Dec-2024 02:21:11 America/Boise] PHP Warning:  Trying to access array offset on value of type bool in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1101
+[12-Dec-2024 02:21:11 America/Boise] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php:1108
+Stack trace:
+#0 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(322): get_site_screen_help_tab_args(NULL, false)
+#1 /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php(1214): remove_comment_author_url(false)
+#2 {main}
+  thrown in /home4/frendesi/public_html/jonginwon/projects/08-touchwiz/wabkiztj.php on line 1108
