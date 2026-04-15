@@ -7,17 +7,12 @@ jQuery(document).ready(function(){
   var aboutBackLinkStorageKey = 'inwon:last-project-page';
   var footerTopButtonHtml = '<button type="button" class="__footer__scroll__top" aria-label="Back to top"><span class="__footer__scroll__top__arrow" aria-hidden="true">↑</span><span class="__footer__scroll__top__label">Top</span></button>';
   var imageAspectSelector = [
-    '.__section__images__left__img',
-    '.__section__images__center__img',
-    '.__section__images__right__img',
     '.__section__about__img__item',
-    '.__section__about__img__item-vertical',
     '.__main__project__img__item',
-    '.__main__project__img__item-vert',
     '.__footer__project__left__img',
     '.__footer__project__right__img'
   ].join(', ');
-  imageAspectSelector += ', .__article__news__img__item, .__article__news__img__item-vertical, .__slides__project__img__item';
+  imageAspectSelector += ', .__slides__project__img__item';
 
   function isAboutPage() {
     return jQuery('body').hasClass('__body-about');
@@ -87,7 +82,7 @@ jQuery(document).ready(function(){
   }
 
   function getNavHeight() {
-    var $nav = jQuery('.__nav__container-images, .__nav__container-home, .__nav__container').first();
+    var $nav = jQuery('.__nav__container-images').first();
 
     if ($nav.length) {
       return $nav.outerHeight();
@@ -208,16 +203,17 @@ jQuery(document).ready(function(){
 
   function extractBackgroundImageUrl(element) {
     var backgroundImage = jQuery(element).css('background-image');
+    var fallbackImage = element.getAttribute('data-bg') || element.getAttribute('data-image') || '';
     var matches;
 
     if (!backgroundImage || backgroundImage === 'none') {
-      return '';
+      return fallbackImage;
     }
 
     matches = /url\((['"]?)(.*?)\1\)/.exec(backgroundImage);
 
     if (!matches || !matches[2]) {
-      return '';
+      return fallbackImage;
     }
 
     return matches[2];
@@ -233,11 +229,17 @@ jQuery(document).ready(function(){
   function applyImageAspect(element) {
     var imageUrl = extractBackgroundImageUrl(element);
     var imageLoader;
+    var currentAspectSource = element.dataset.aspectSource || '';
 
-    if (!imageUrl || element.dataset.aspectReady === 'true') {
+    if (!imageUrl) {
       return;
     }
 
+    if ((element.dataset.aspectReady === 'true' || element.dataset.aspectReady === 'loading') && currentAspectSource === imageUrl) {
+      return;
+    }
+
+    element.dataset.aspectSource = imageUrl;
     element.dataset.aspectReady = 'loading';
     jQuery(element).addClass('__image__aspect__item __image__aspect--pending');
 
@@ -264,6 +266,8 @@ jQuery(document).ready(function(){
       applyImageAspect(root);
     }
   }
+
+  window.__applyImageAspectSystem = applyImageAspectSystem;
 
   function initImageAspectObserver() {
     if (!window.MutationObserver) {

@@ -1,88 +1,286 @@
-jQuery(document).ready(function(){
+jQuery(function() {
+  var $index = jQuery('.__main__images__container');
+  var dataSource = window.__homeImageData;
+  var batchSize = 18;
+  var homeImageClass = '__home__feed__asset';
+  var sentinelClass = '__home__feed__sentinel';
+  var lazyLoader = null;
+  var sentinel = null;
+  var feedObserver = null;
+  var scrollFallbackHandler = null;
+  var isRendering = false;
+  var projectQueues = [];
+  var activeProjectIndexes = [];
 
-  let _index = jQuery('.__main__images__container');
-
-  if(_index.length){
-    reqListener(_obj);
+  if (!$index.length || !Array.isArray(dataSource) || !dataSource.length) {
+    return;
   }
 
-  function reqListener (_getACF) {
+  initHomeFeed(dataSource);
 
-    let arr_projects = _getACF.map(function(projects) {
-      return shuffleArray(projects.slice());
+  function initHomeFeed(projectData) {
+    projectQueues = projectData.map(function(projectImages) {
+      return shuffleArray(projectImages.slice());
     });
-    let arr_images = [];
+    activeProjectIndexes = projectQueues
+      .map(function(_, index) {
+        return index;
+      })
+      .filter(function(index) {
+        return projectQueues[index].length > 0;
+      });
 
-    while (arr_projects.some(function(projects) { return projects.length > 0; })){
-      shuffleArray(arr_projects);
+    lazyLoader = createLazyLoader();
+    renderNextBatch();
 
-      for (var projects of arr_projects){
-        if (projects.length > 0){
-          arr_images.push(projects.pop());
+    if (hasRemainingImages()) {
+      setupLoadMoreObserver();
+    }
+  }
+
+  function createLazyLoader() {
+    if (typeof window.LazyLoad === 'function') {
+      return new window.LazyLoad({
+        elements_selector: '.' + homeImageClass + '[data-bg]',
+        threshold: 700,
+        data_bg: 'bg',
+        class_loading: '__lazy__asset--loading',
+        class_loaded: '__lazy__asset--loaded',
+        class_error: '__lazy__asset--error'
+      });
+    }
+
+    return {
+      update: function(elements) {
+        normalizeElements(elements).forEach(function(element) {
+          var imageUrl = element.getAttribute('data-bg');
+          var preloader;
+
+          if (!imageUrl) {
+            return;
+          }
+
+          preloader = new Image();
+          preloader.onload = function() {
+            element.classList.add('__image__aspect__item');
+            element.classList.toggle('__image__aspect--portrait', preloader.naturalHeight > preloader.naturalWidth);
+            element.classList.toggle('__image__aspect--landscape', preloader.naturalHeight <= preloader.naturalWidth);
+            element.dataset.aspectReady = 'true';
+            element.dataset.aspectSource = imageUrl;
+            element.style.backgroundImage = 'url("' + imageUrl + '")';
+            element.classList.add('__lazy__asset--loaded');
+          };
+          preloader.onerror = function() {
+            element.classList.add('__lazy__asset--error');
+          };
+          preloader.src = imageUrl;
+        });
+      }
+    };
+  }
+
+  function setupLoadMoreObserver() {
+    sentinel = document.createElement('div');
+    sentinel.className = sentinelClass;
+    sentinel.setAttribute('aria-hidden', 'true');
+    $index[0].appendChild(sentinel);
+
+    if ('IntersectionObserver' in window) {
+      feedObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            renderNextBatch();
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '900px 0px'
+      });
+
+      feedObserver.observe(sentinel);
+      return;
+    }
+
+    scrollFallbackHandler = function() {
+      if (!sentinel) {
+        return;
+      }
+
+      if (sentinel.getBoundingClientRect().top - window.innerHeight < 900) {
+        renderNextBatch();
+      }
+    };
+
+    window.addEventListener('scroll', scrollFallbackHandler, {
+      passive: true
+    });
+    window.addEventListener('resize', scrollFallbackHandler);
+    scrollFallbackHandler();
+  }
+
+  function teardownLoadMoreObserver() {
+    if (feedObserver && sentinel) {
+      feedObserver.unobserve(sentinel);
+      feedObserver.disconnect();
+      feedObserver = null;
+    }
+
+    if (scrollFallbackHandler) {
+      window.removeEventListener('scroll', scrollFallbackHandler);
+      window.removeEventListener('resize', scrollFallbackHandler);
+      scrollFallbackHandler = null;
+    }
+
+    if (sentinel && sentinel.parentNode) {
+      sentinel.parentNode.removeChild(sentinel);
+    }
+
+    sentinel = null;
+  }
+
+  function renderNextBatch() {
+    var nextImages;
+    var wrapper = document.createElement('div');
+    var fragment = document.createDocumentFragment();
+    var newElements;
+
+    if (isRendering) {
+      return;
+    }
+
+    nextImages = getNextBatch(batchSize);
+
+    if (!nextImages.length) {
+      teardownLoadMoreObserver();
+      return;
+    }
+
+    isRendering = true;
+    wrapper.innerHTML = buildBatchMarkup(nextImages);
+    newElements = normalizeElements(wrapper.querySelectorAll('.' + homeImageClass));
+
+    while (wrapper.firstChild) {
+      fragment.appendChild(wrapper.firstChild);
+    }
+
+    if (sentinel) {
+      $index[0].insertBefore(fragment, sentinel);
+    } else {
+      $index[0].appendChild(fragment);
+    }
+
+    if (lazyLoader) {
+      lazyLoader.update(newElements);
+    }
+
+    isRendering = false;
+
+    if (!hasRemainingImages()) {
+      teardownLoadMoreObserver();
+    }
+  }
+
+  function getNextBatch(size) {
+    var batch = [];
+    var cycleIndexes;
+    var index;
+    var queueIndex;
+
+    compactProjectIndexes();
+
+    while (batch.length < size && activeProjectIndexes.length) {
+      cycleIndexes = shuffleArray(activeProjectIndexes.slice());
+
+      for (index = 0; index < cycleIndexes.length && batch.length < size; index += 1) {
+        queueIndex = cycleIndexes[index];
+
+        if (!projectQueues[queueIndex].length) {
+          continue;
         }
+
+        batch.push(projectQueues[queueIndex].pop());
+      }
+
+      compactProjectIndexes();
+    }
+
+    return batch;
+  }
+
+  function compactProjectIndexes() {
+    activeProjectIndexes = activeProjectIndexes.filter(function(index) {
+      return projectQueues[index] && projectQueues[index].length > 0;
+    });
+  }
+
+  function hasRemainingImages() {
+    compactProjectIndexes();
+    return activeProjectIndexes.length > 0;
+  }
+
+  function buildBatchMarkup(images) {
+    var columns = ['left', 'center', 'right'];
+    var markup = '';
+    var index;
+
+    for (index = 0; index < images.length; index += 1) {
+      if (index % 3 === 0) {
+        markup += "<div class='__section__images__wrapper cf'>";
+      }
+
+      markup += buildColumnMarkup(images[index], columns[index % 3]);
+
+      if (index % 3 === 2 || index === images.length - 1) {
+        markup += '</div>';
       }
     }
 
-    html_output(arr_images.splice(0,18));
-
-    setTimeout(function(){
-      jQuery(window).on('scroll', function() {
-         if(jQuery(window).scrollTop() + jQuery(window).height() > jQuery(document).height() - 100) {
-           if(arr_images.length > 0){
-             html_output(arr_images.splice(0,18));
-           }
-         }
-      });
-    },50);
-
-
+    return markup;
   }
 
-  function shuffleArray(arr){
-    for (let i = arr.length - 1; i > 0; i -= 1) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
-      let temp = arr[i];
-      arr[i] = arr[randomIndex];
+  function buildColumnMarkup(imageData, column) {
+    var anchorClass = '__section__images__' + column + '__img ' + homeImageClass;
+
+    return [
+      "<div class='__section__images__" + column + "__container'>",
+      "<a class='" + anchorClass + "' href='" + escapeAttribute(imageData.link) + "' data-bg='" + escapeAttribute(imageData.image) + "'></a>",
+      '</div>'
+    ].join('');
+  }
+
+  function shuffleArray(arr) {
+    var index;
+    var randomIndex;
+    var temp;
+
+    for (index = arr.length - 1; index > 0; index -= 1) {
+      randomIndex = Math.floor(Math.random() * (index + 1));
+      temp = arr[index];
+      arr[index] = arr[randomIndex];
       arr[randomIndex] = temp;
     }
 
     return arr;
   }
 
-  function html_output(newArray){
-    let _output = "";
-    let _nextColumn = "left";
-
-    for (var __image of newArray){
-      if ( _nextColumn == 'left'){
-      _output += `<div class='__section__images__wrapper cf '>`;
-      _output += `<div class='__section__images__left__container'>`;
-      _output += `<a class='__section__images__left__img' href='${__image.link}' style='background-image:url(${__image.image})' ></a>`;
-      _output += `</div>`;
-      _nextColumn = 'center';
-      }
-      else if ( _nextColumn == 'center' ){
-      _output += `<div class='__section__images__center__container'>`;
-      _output += `<a class='__section__images__center__img' href='${__image.link}' style='background-image:url(${__image.image})' ></a>`;
-      _output += `</div>`;
-      _nextColumn = 'right';
-      }
-      else if ( _nextColumn == 'right' ){
-      _output += `<div class='__section__images__right__container'>`;
-      _output += `<a class='__section__images__right__img' href='${__image.link}' style='background-image:url( ${__image.image} )' ></a>`;
-      _output += `</div>`;
-      _output += `</div>`;
-      _nextColumn = 'left';
-      }
+  function normalizeElements(elements) {
+    if (!elements) {
+      return [];
     }
 
-    if (_nextColumn != 'left') {
-      _output += `</div>`;
+    if (elements.nodeType === 1) {
+      return [elements];
     }
 
-    _index[0].insertAdjacentHTML('beforeend', _output);
+    return Array.prototype.slice.call(elements);
   }
 
-
-
-})
+  function escapeAttribute(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+});
