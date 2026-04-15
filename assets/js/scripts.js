@@ -4,19 +4,83 @@ jQuery(document).ready(function(){
   var $mainProjectContainer = jQuery('.__main__project__container');
   var galleryItems = [];
   var currentSlideIndex = 0;
+  var aboutBackLinkStorageKey = 'inwon:last-project-page';
   var footerTopButtonHtml = '<button type="button" class="__footer__scroll__top" aria-label="Back to top"><span class="__footer__scroll__top__arrow" aria-hidden="true">↑</span><span class="__footer__scroll__top__label">Top</span></button>';
   var imageAspectSelector = [
     '.__section__images__left__img',
     '.__section__images__center__img',
     '.__section__images__right__img',
-    '.__section__practice__img__item',
-    '.__section__practice__img__item-vertical',
+    '.__section__about__img__item',
+    '.__section__about__img__item-vertical',
     '.__main__project__img__item',
     '.__main__project__img__item-vert',
     '.__footer__project__left__img',
     '.__footer__project__right__img'
   ].join(', ');
-  imageAspectSelector += ', .__article__news__img__item, .__article__news__img__item-vertical, .__section__practice__contact__img__item, .__slides__project__img__item';
+  imageAspectSelector += ', .__article__news__img__item, .__article__news__img__item-vertical, .__slides__project__img__item';
+
+  function isAboutPage() {
+    return jQuery('body').hasClass('__body-about');
+  }
+
+  function normalizePageLabel(text) {
+    return jQuery.trim(String(text || '').replace(/\s+/g, ' '));
+  }
+
+  function getCurrentProjectPageData() {
+    var $projectTitleLabel = jQuery('.__main__project__text__title__item__label').first();
+
+    if (isAboutPage() || !$projectTitleLabel.length) {
+      return null;
+    }
+
+    return {
+      type: 'project',
+      label: normalizePageLabel($projectTitleLabel.text()),
+      url: window.location.href
+    };
+  }
+
+  function rememberLastProjectPage() {
+    var pageData = getCurrentProjectPageData();
+
+    try {
+      if (pageData) {
+        sessionStorage.setItem(aboutBackLinkStorageKey, JSON.stringify(pageData));
+      }
+    } catch (error) {}
+  }
+
+  function initAboutBackLink() {
+    var $backLink = jQuery('[data-about-back-link]');
+    var $backLabel = jQuery('[data-about-back-label]');
+    var pageData = null;
+    var fallbackUrl;
+    var fallbackLabel;
+
+    if (!isAboutPage() || !$backLink.length || !$backLabel.length) {
+      return;
+    }
+
+    fallbackUrl = $backLink.attr('data-about-back-default-href') || '../projects/23-telfair-childrens-art-museum/index.html';
+    fallbackLabel = $backLink.attr('data-about-back-default-label') || 'Telfair Children\'s Art Museum';
+
+    try {
+      pageData = JSON.parse(sessionStorage.getItem(aboutBackLinkStorageKey) || 'null');
+    } catch (error) {}
+
+    if (!pageData || pageData.type !== 'project' || !pageData.url || !pageData.label) {
+      pageData = {
+        type: 'project',
+        url: fallbackUrl,
+        label: fallbackLabel
+      };
+    }
+
+    $backLink.attr('href', pageData.url);
+    $backLink.attr('aria-label', 'Return to ' + pageData.label);
+    $backLabel.text(pageData.label);
+  }
 
   function getProjectImages() {
     return jQuery('.__main__project__img__item');
@@ -253,6 +317,11 @@ jQuery(document).ready(function(){
     scrollToTop();
   });
 
+  initAboutBackLink();
+  rememberLastProjectPage();
+  jQuery(window).on('pageshow', function() {
+    rememberLastProjectPage();
+  });
   initFooterTopButton();
   applyImageAspectSystem(document);
   initImageAspectObserver();
@@ -282,3 +351,4 @@ function _mobileIconToggle (_className){
 document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
 });
+

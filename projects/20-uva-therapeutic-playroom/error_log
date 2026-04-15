@@ -1,6 +1,0 @@
-[12-Dec-2024 02:28:55 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
-[12-Dec-2024 02:29:37 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
-[12-Dec-2024 02:30:19 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
-[12-Dec-2024 02:30:22 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
-[12-Dec-2024 02:32:29 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
-[12-Dec-2024 02:32:30 America/Boise] PHP Fatal error:  Cannot redeclare sodium_crypto_scalarmult_ristretto255_base() in /home4/frendesi/public_html/jonginwon/projects/20-uva-therapeutic-playroom/wp-login.php on line 436
