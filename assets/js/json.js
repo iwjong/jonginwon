@@ -8,6 +8,7 @@ jQuery(function() {
   var sentinel = null;
   var feedObserver = null;
   var scrollFallbackHandler = null;
+  var scrollTarget = null;
   var isRendering = false;
   var projectQueues = [];
   var activeProjectIndexes = [];
@@ -80,6 +81,7 @@ jQuery(function() {
   }
 
   function setupLoadMoreObserver() {
+    scrollTarget = getFeedScrollTarget();
     sentinel = document.createElement('div');
     sentinel.className = sentinelClass;
     sentinel.setAttribute('aria-hidden', 'true');
@@ -93,7 +95,7 @@ jQuery(function() {
           }
         });
       }, {
-        root: null,
+        root: scrollTarget === window ? null : scrollTarget,
         rootMargin: '900px 0px'
       });
 
@@ -106,14 +108,21 @@ jQuery(function() {
         return;
       }
 
-      if (sentinel.getBoundingClientRect().top - window.innerHeight < 900) {
+      if (isSentinelWithinLoadRange()) {
         renderNextBatch();
       }
     };
 
-    window.addEventListener('scroll', scrollFallbackHandler, {
-      passive: true
-    });
+    if (scrollTarget === window) {
+      window.addEventListener('scroll', scrollFallbackHandler, {
+        passive: true
+      });
+    } else {
+      scrollTarget.addEventListener('scroll', scrollFallbackHandler, {
+        passive: true
+      });
+    }
+
     window.addEventListener('resize', scrollFallbackHandler);
     scrollFallbackHandler();
   }
@@ -126,7 +135,12 @@ jQuery(function() {
     }
 
     if (scrollFallbackHandler) {
-      window.removeEventListener('scroll', scrollFallbackHandler);
+      if (scrollTarget && scrollTarget !== window) {
+        scrollTarget.removeEventListener('scroll', scrollFallbackHandler);
+      } else {
+        window.removeEventListener('scroll', scrollFallbackHandler);
+      }
+
       window.removeEventListener('resize', scrollFallbackHandler);
       scrollFallbackHandler = null;
     }
@@ -136,6 +150,7 @@ jQuery(function() {
     }
 
     sentinel = null;
+    scrollTarget = null;
   }
 
   function renderNextBatch() {
@@ -264,6 +279,41 @@ jQuery(function() {
     }
 
     return Array.prototype.slice.call(elements);
+  }
+
+  function getFeedScrollTarget() {
+    var element = $index[0];
+    var styles;
+
+    if (!element || !window.getComputedStyle) {
+      return window;
+    }
+
+    styles = window.getComputedStyle(element);
+
+    if ((styles.overflowY === 'auto' || styles.overflowY === 'scroll') && element.scrollHeight > element.clientHeight) {
+      return element;
+    }
+
+    return window;
+  }
+
+  function isSentinelWithinLoadRange() {
+    var sentinelRect;
+    var rootRect;
+
+    if (!sentinel) {
+      return false;
+    }
+
+    sentinelRect = sentinel.getBoundingClientRect();
+
+    if (scrollTarget && scrollTarget !== window) {
+      rootRect = scrollTarget.getBoundingClientRect();
+      return sentinelRect.top - rootRect.top < scrollTarget.clientHeight + 900;
+    }
+
+    return sentinelRect.top - window.innerHeight < 900;
   }
 
   function escapeAttribute(value) {

@@ -91,6 +91,23 @@ jQuery(document).ready(function(){
     return 0;
   }
 
+  function getPrimaryScrollTarget() {
+    var $homeFeed = jQuery('body.body-images .main-images-container').first();
+    var feedElement;
+    var feedStyles;
+
+    if ($homeFeed.length) {
+      feedElement = $homeFeed[0];
+      feedStyles = window.getComputedStyle ? window.getComputedStyle(feedElement) : null;
+
+      if (feedStyles && (feedStyles.overflowY === 'auto' || feedStyles.overflowY === 'scroll') && feedElement.scrollHeight > feedElement.clientHeight) {
+        return feedElement;
+      }
+    }
+
+    return window;
+  }
+
   function isGalleryOpen() {
     return $slidesContainer.length && $slidesContainer.css('display') == 'block';
   }
@@ -185,6 +202,21 @@ jQuery(document).ready(function(){
   }
 
   function scrollToTop() {
+    var scrollTarget = getPrimaryScrollTarget();
+
+    if (scrollTarget !== window) {
+      if (typeof scrollTarget.scrollTo === 'function' && 'scrollBehavior' in document.documentElement.style) {
+        scrollTarget.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        scrollTarget.scrollTop = 0;
+      }
+
+      return;
+    }
+
     if ('scrollBehavior' in document.documentElement.style) {
       window.scrollTo({
         top: 0,
@@ -355,4 +387,3 @@ function _mobileIconToggle (_className){
 document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
 });
-

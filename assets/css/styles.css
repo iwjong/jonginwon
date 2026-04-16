@@ -2632,11 +2632,16 @@ body.body-main .slides-project-img-item.image-aspect-portrait {
   right: 0;
 }
 
+body.body-main .nav-container-images,
 body.body-images .nav-container-images {
   font-size: var(--site-nav-size, 1rem);
   line-height: var(--site-nav-leading, 1.46rem);
 }
 
+body.body-main .nav-container-images .nav-menu-brand-wrapper,
+body.body-main .nav-container-images .nav-brand-item,
+body.body-main .nav-container-images .nav-menu-link-item,
+body.body-main .nav-container-images .nav-menu-link-text,
 body.body-images .nav-container-images .nav-menu-brand-wrapper,
 body.body-images .nav-container-images .nav-brand-item,
 body.body-images .nav-container-images .nav-menu-link-item,
@@ -2645,17 +2650,31 @@ body.body-images .nav-container-images .nav-menu-link-text {
   line-height: inherit;
 }
 
+body.body-main .nav-container-images .nav-brand-item,
 body.body-images .nav-container-images .nav-brand-item {
   display: block;
   font-family: 'Signifier-Light', Georgia, serif;
   letter-spacing: .04em;
 }
 
+body.body-main .nav-container-images h1.nav-brand-item,
 body.body-images .nav-container-images h1.nav-brand-item {
   margin: 0;
   font-size: inherit;
   line-height: inherit;
   font-weight: normal;
+}
+
+body.body-main .main-project-text-title {
+  font-size: var(--site-nav-size, 1rem);
+  line-height: var(--site-nav-leading, 1.46rem);
+}
+
+body.body-main .main-project-text-title-item,
+body.body-main .main-project-text-title-item-label,
+body.body-main .main-project-text-title-item-year {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 body.body-about .main-about-container {
@@ -2735,6 +2754,7 @@ body.body-about .nav-menu-link-text {
 }
 
 @media screen and (max-width: 499px) and (max-height: 439px) {
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: .8rem;
     --site-nav-leading: 1rem;
@@ -2742,6 +2762,7 @@ body.body-about .nav-menu-link-text {
 }
 
 @media screen and (max-width: 499px) and (min-height: 440px) {
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: .64rem;
     --site-nav-leading: 1rem;
@@ -2749,6 +2770,7 @@ body.body-about .nav-menu-link-text {
 }
 
 @media screen and (min-width: 500px) and (max-width: 799px) and (max-height: 439px) {
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: .8rem;
     --site-nav-leading: 1rem;
@@ -2761,6 +2783,7 @@ body.body-about .nav-menu-link-text {
     --detail-text-width: 17.5rem;
   }
 
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: .8rem;
     --site-nav-leading: 1.18rem;
@@ -2773,6 +2796,7 @@ body.body-about .nav-menu-link-text {
     --detail-text-width: 16rem;
   }
 
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: .82rem;
     --site-nav-leading: 1.23rem;
@@ -2785,6 +2809,7 @@ body.body-about .nav-menu-link-text {
     --detail-text-width: 24rem;
   }
 
+  body.body-main,
   body.body-images .nav-container-images {
     --site-nav-size: 1rem;
     --site-nav-leading: 1.46rem;
@@ -2794,13 +2819,14 @@ body.body-about .nav-menu-link-text {
 @media screen and (min-width: 768px) {
   body.body-main,
   body.body-images {
-    font-size: 15.36px;
-    line-height: 22.656px;
+    font-size: 16px;
+    line-height: 23px;
   }
 
+  body.body-main,
   body.body-images .nav-container-images {
-    --site-nav-size: 15.36px;
-    --site-nav-leading: 22.656px;
+    --site-nav-size: 16px;
+    --site-nav-leading: 23px;
   }
 
   .footer-project-container {
@@ -2958,5 +2984,82 @@ body.body-images .main-images-container .home-feed-sentinel {
     --home-grid-columns: 5;
     --home-grid-column-width: 12rem;
     --home-grid-column-gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body.body-main,
+  body.body-images {
+    --home-desktop-side-padding: clamp(5rem, 6vw, 8rem);
+  }
+
+  body.body-images {
+    --home-center-reserve: clamp(12rem, 19vw, 18rem);
+    --home-desktop-top-offset: clamp(7.8rem, 10vw, 9.8rem);
+    --home-grid-columns: 3;
+    --home-grid-column-gap: clamp(1.5rem, 2.5vw, 4rem);
+    --home-grid-row-gap: calc(var(--home-grid-column-gap) * 1.15);
+    --home-center-track-width: min(44rem, calc(100vw - (var(--home-desktop-side-padding) * 2) - var(--home-center-reserve)));
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body.body-images .nav-container-images {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--home-desktop-side-padding);
+    padding-right: var(--home-desktop-side-padding);
+  }
+
+  body.body-main .nav-container-images {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--home-desktop-side-padding);
+    padding-right: var(--home-desktop-side-padding);
+  }
+
+  body.body-images .main-images-container {
+    width: min(100%, var(--home-center-track-width));
+    max-width: var(--home-center-track-width);
+    margin: var(--home-desktop-top-offset) auto 0;
+    padding-top: 0;
+    padding-bottom: 4rem;
+    overflow: visible;
+    align-content: start;
+    justify-items: stretch;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--home-grid-column-gap);
+    row-gap: var(--home-grid-row-gap);
+  }
+
+  body.body-images .main-images-container .section-images-item-container,
+  body.body-images .main-images-container .section-images-left-container,
+  body.body-images .main-images-container .section-images-center-container,
+  body.body-images .main-images-container .section-images-right-container {
+    content-visibility: visible;
+    contain: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  body.body-images .main-images-container .section-images-item,
+  body.body-images .main-images-container .section-images-left-img,
+  body.body-images .main-images-container .section-images-center-img,
+  body.body-images .main-images-container .section-images-right-img {
+    width: 100%;
+    max-width: none;
+  }
+
+  body.body-images .main-images-container .section-images-item.image-aspect-portrait,
+  body.body-images .main-images-container .section-images-left-img.image-aspect-portrait,
+  body.body-images .main-images-container .section-images-center-img.image-aspect-portrait,
+  body.body-images .main-images-container .section-images-right-img.image-aspect-portrait {
+    width: calc(100% * 678 / 960);
+  }
+
+  body.body-images .footer-project-container {
+    display: none;
   }
 }
