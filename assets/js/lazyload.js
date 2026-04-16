@@ -94,10 +94,10 @@
   }
 
   function setAspectState(element, imageUrl, isPortrait, status) {
-    addClass(element, '__image__aspect__item');
-    removeClass(element, '__image__aspect--pending');
-    element.classList.toggle('__image__aspect--portrait', !!isPortrait);
-    element.classList.toggle('__image__aspect--landscape', !isPortrait);
+    addClass(element, 'image-aspect-item');
+    removeClass(element, 'image-aspect-pending');
+    element.classList.toggle('image-aspect-portrait', !!isPortrait);
+    element.classList.toggle('image-aspect-landscape', !isPortrait);
     element.dataset.aspectSource = imageUrl;
     element.dataset.aspectReady = status;
   }

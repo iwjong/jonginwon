@@ -1,21 +1,21 @@
 jQuery(document).ready(function(){
-  var $slidesContainer = jQuery('.__slides__project__container');
-  var $slideImage = $slidesContainer.find('.__slides__project__img__item');
-  var $mainProjectContainer = jQuery('.__main__project__container');
+  var $slidesContainer = jQuery('.slides-project-container');
+  var $slideImage = $slidesContainer.find('.slides-project-img-item');
+  var $mainProjectContainer = jQuery('.main-project-container');
   var galleryItems = [];
   var currentSlideIndex = 0;
   var aboutBackLinkStorageKey = 'inwon:last-project-page';
-  var footerTopButtonHtml = '<button type="button" class="__footer__scroll__top" aria-label="Back to top"><span class="__footer__scroll__top__arrow" aria-hidden="true">↑</span><span class="__footer__scroll__top__label">Top</span></button>';
+  var footerTopButtonHtml = '<button type="button" class="footer-scroll-top" aria-label="Back to top"><span class="footer-scroll-top-arrow" aria-hidden="true">↑</span><span class="footer-scroll-top-label">Top</span></button>';
   var imageAspectSelector = [
-    '.__section__about__img__item',
-    '.__main__project__img__item',
-    '.__footer__project__left__img',
-    '.__footer__project__right__img'
+    '.section-about-img-item',
+    '.main-project-img-item',
+    '.footer-project-left-img',
+    '.footer-project-right-img'
   ].join(', ');
-  imageAspectSelector += ', .__slides__project__img__item';
+  imageAspectSelector += ', .slides-project-img-item';
 
   function isAboutPage() {
-    return jQuery('body').hasClass('__body-about');
+    return jQuery('body').hasClass('body-about');
   }
 
   function normalizePageLabel(text) {
@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
   }
 
   function getCurrentProjectPageData() {
-    var $projectTitleLabel = jQuery('.__main__project__text__title__item__label').first();
+    var $projectTitleLabel = jQuery('.main-project-text-title-item-label').first();
 
     if (isAboutPage() || !$projectTitleLabel.length) {
       return null;
@@ -78,11 +78,11 @@ jQuery(document).ready(function(){
   }
 
   function getProjectImages() {
-    return jQuery('.__main__project__img__item');
+    return jQuery('.main-project-img-item');
   }
 
   function getNavHeight() {
-    var $nav = jQuery('.__nav__container-images').first();
+    var $nav = jQuery('.nav-container-images').first();
 
     if ($nav.length) {
       return $nav.outerHeight();
@@ -148,7 +148,7 @@ jQuery(document).ready(function(){
     renderSlide(currentSlideIndex);
     $slidesContainer.css('display', 'block');
     window.scrollTo(0, 48);
-    $mainProjectContainer.addClass('__main__project__container__hidden');
+    $mainProjectContainer.addClass('main-project-container-hidden');
   }
 
   function closeGallery() {
@@ -160,7 +160,7 @@ jQuery(document).ready(function(){
 
     $exitImage = galleryItems[currentSlideIndex] ? jQuery(galleryItems[currentSlideIndex].element) : jQuery();
 
-    $mainProjectContainer.removeClass('__main__project__container__hidden');
+    $mainProjectContainer.removeClass('main-project-container-hidden');
     $slidesContainer.css('display', 'none');
 
     if ($exitImage.length) {
@@ -196,7 +196,7 @@ jQuery(document).ready(function(){
   }
 
   function initFooterTopButton() {
-    jQuery('.__footer__project__comment__container').each(function() {
+    jQuery('.footer-project-comment-container').each(function() {
       jQuery(this).empty().append(footerTopButtonHtml);
     });
   }
@@ -221,9 +221,9 @@ jQuery(document).ready(function(){
 
   function setAspectClass(element, isPortrait) {
     jQuery(element)
-      .removeClass('__image__aspect--pending')
-      .toggleClass('__image__aspect--portrait', isPortrait)
-      .toggleClass('__image__aspect--landscape', !isPortrait);
+      .removeClass('image-aspect-pending')
+      .toggleClass('image-aspect-portrait', isPortrait)
+      .toggleClass('image-aspect-landscape', !isPortrait);
   }
 
   function applyImageAspect(element) {
@@ -241,7 +241,7 @@ jQuery(document).ready(function(){
 
     element.dataset.aspectSource = imageUrl;
     element.dataset.aspectReady = 'loading';
-    jQuery(element).addClass('__image__aspect__item __image__aspect--pending');
+    jQuery(element).addClass('image-aspect-item image-aspect-pending');
 
     imageLoader = new Image();
     imageLoader.onload = function() {
@@ -267,7 +267,7 @@ jQuery(document).ready(function(){
     }
   }
 
-  window.__applyImageAspectSystem = applyImageAspectSystem;
+  window.applyImageAspectSystem = applyImageAspectSystem;
 
   function initImageAspectObserver() {
     if (!window.MutationObserver) {
@@ -292,21 +292,21 @@ jQuery(document).ready(function(){
     openGallery(this);
   });
 
-  jQuery('.__slides__project__img__item, .__slides__project__group__icons__next').on('click', function() {
+  jQuery('.slides-project-img-item, .slides-project-group-icons-next').on('click', function() {
     showNextSlide();
   });
 
-  jQuery('.__slides__project__group__icons__prev').on('click', function() {
+  jQuery('.slides-project-group-icons-prev').on('click', function() {
     showPreviousSlide();
   });
 
-  jQuery('.__slides__project__group__icons__close').on('click keyup', function(e) {
+  jQuery('.slides-project-group-icons-close').on('click keyup', function(e) {
     if (e.type == 'click' || e.key == 'Enter' || e.key == ' ' || e.keyCode == 13 || e.keyCode == 32) {
       closeGallery();
     }
   });
 
-  jQuery(".__main__project__text__title").click(function(){
+  jQuery(".main-project-text-title").click(function(){
     window.scrollTo(0 , 0);
   });
 
@@ -316,7 +316,7 @@ jQuery(document).ready(function(){
     }
   });
 
-  jQuery(document).on('click', '.__footer__scroll__top', function(e) {
+  jQuery(document).on('click', '.footer-scroll-top', function(e) {
     e.preventDefault();
     scrollToTop();
   });
@@ -332,7 +332,7 @@ jQuery(document).ready(function(){
 });
 
 function _checkSize(){
-  var mobileTest = jQuery(".__mobile__test").css("text-align")
+  var mobileTest = jQuery(".mobile-test").css("text-align")
   switch (mobileTest){
     case "left":
       return "mobile"

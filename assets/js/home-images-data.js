@@ -1,4 +1,4 @@
-﻿window.__homeImageData = [
+﻿window.homeImageData = [
             [{
                 "image": "projects/23-telfair-childrens-art-museum/fd-tcam-00.jpg",
                 "link": "projects/23-telfair-childrens-art-museum/index.html",

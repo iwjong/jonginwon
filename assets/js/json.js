@@ -1,9 +1,9 @@
 jQuery(function() {
-  var $index = jQuery('.__main__images__container');
-  var dataSource = window.__homeImageData;
+  var $index = jQuery('.main-images-container');
+  var dataSource = window.homeImageData;
   var batchSize = 18;
-  var homeImageClass = '__home__feed__asset';
-  var sentinelClass = '__home__feed__sentinel';
+  var homeImageClass = 'home-feed-asset';
+  var sentinelClass = 'home-feed-sentinel';
   var lazyLoader = null;
   var sentinel = null;
   var feedObserver = null;
@@ -44,9 +44,9 @@ jQuery(function() {
         elements_selector: '.' + homeImageClass + '[data-bg]',
         threshold: 700,
         data_bg: 'bg',
-        class_loading: '__lazy__asset--loading',
-        class_loaded: '__lazy__asset--loaded',
-        class_error: '__lazy__asset--error'
+        class_loading: 'lazy-asset-loading',
+        class_loaded: 'lazy-asset-loaded',
+        class_error: 'lazy-asset-error'
       });
     }
 
@@ -62,16 +62,16 @@ jQuery(function() {
 
           preloader = new Image();
           preloader.onload = function() {
-            element.classList.add('__image__aspect__item');
-            element.classList.toggle('__image__aspect--portrait', preloader.naturalHeight > preloader.naturalWidth);
-            element.classList.toggle('__image__aspect--landscape', preloader.naturalHeight <= preloader.naturalWidth);
+            element.classList.add('image-aspect-item');
+            element.classList.toggle('image-aspect-portrait', preloader.naturalHeight > preloader.naturalWidth);
+            element.classList.toggle('image-aspect-landscape', preloader.naturalHeight <= preloader.naturalWidth);
             element.dataset.aspectReady = 'true';
             element.dataset.aspectSource = imageUrl;
             element.style.backgroundImage = 'url("' + imageUrl + '")';
-            element.classList.add('__lazy__asset--loaded');
+            element.classList.add('lazy-asset-loaded');
           };
           preloader.onerror = function() {
-            element.classList.add('__lazy__asset--error');
+            element.classList.add('lazy-asset-error');
           };
           preloader.src = imageUrl;
         });
@@ -219,30 +219,21 @@ jQuery(function() {
   }
 
   function buildBatchMarkup(images) {
-    var columns = ['left', 'center', 'right'];
     var markup = '';
     var index;
 
     for (index = 0; index < images.length; index += 1) {
-      if (index % 3 === 0) {
-        markup += "<div class='__section__images__wrapper cf'>";
-      }
-
-      markup += buildColumnMarkup(images[index], columns[index % 3]);
-
-      if (index % 3 === 2 || index === images.length - 1) {
-        markup += '</div>';
-      }
+      markup += buildImageMarkup(images[index]);
     }
 
     return markup;
   }
 
-  function buildColumnMarkup(imageData, column) {
-    var anchorClass = '__section__images__' + column + '__img ' + homeImageClass;
+  function buildImageMarkup(imageData) {
+    var anchorClass = 'section-images-item ' + homeImageClass;
 
     return [
-      "<div class='__section__images__" + column + "__container'>",
+      "<div class='section-images-item-container'>",
       "<a class='" + anchorClass + "' href='" + escapeAttribute(imageData.link) + "' data-bg='" + escapeAttribute(imageData.image) + "'></a>",
       '</div>'
     ].join('');
