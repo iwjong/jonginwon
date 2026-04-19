@@ -1,24 +1,18 @@
 ﻿window.homeImageData = [
             [{
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-00.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
+                "image": "projects/26-threadframe/sde-threadframe-001.jpg",
+                "link": "projects/26-threadframe/index.html",
             }, {
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-02.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
+                "image": "projects/26-threadframe/sde-threadframe-003.jpg",
+                "link": "projects/26-threadframe/index.html",
             }, {
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-04.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
+                "image": "projects/26-threadframe/sde-threadframe-004.jpg",
+                "link": "projects/26-threadframe/index.html",
             }, {
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-05.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
-            }, {
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-06.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
+                "image": "projects/26-threadframe/sde-threadframe-005.jpg",
+                "link": "projects/26-threadframe/index.html",
             }, {
                 "image": "projects/23-telfair-childrens-art-museum/fd-tcam-00.jpg",
-                "link": "projects/23-telfair-childrens-art-museum/index.html",
-            }, {
-                "image": "projects/23-telfair-childrens-art-museum/fd-tcam-02.jpg",
                 "link": "projects/23-telfair-childrens-art-museum/index.html",
             }, {
                 "image": "projects/23-telfair-childrens-art-museum/fd-tcam-04.jpg",
@@ -346,9 +340,6 @@
                 "image": "projects/19-three-brothers/fd-three-brothers-01.jpg",
                 "link": "projects/19-three-brothers/index.html"
             }, {
-                "image": "projects/19-three-brothers/fd-three-brothers-03.jpg",
-                "link": "projects/19-three-brothers/index.html"
-            }, {
                 "image": "projects/19-three-brothers/fd-three-brothers-05.jpg",
                 "link": "projects/19-three-brothers/index.html"
             }, {
@@ -580,9 +571,6 @@
             }],
             [{
                 "image": "projects/16-mobile-health-system/mfa-mobile-health-system-01.jpg",
-                "link": "projects/16-mobile-health-system/index.html"
-            }, {
-                "image": "projects/16-mobile-health-system/mfa-mobile-health-system-02-2.jpg",
                 "link": "projects/16-mobile-health-system/index.html"
             }, {
                 "image": "projects/16-mobile-health-system/mfa-mobile-health-system-02-4.jpg",
