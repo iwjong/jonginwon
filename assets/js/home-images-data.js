@@ -11,7 +11,30 @@
             }, {
                 "image": "projects/26-threadframe/sde-threadframe-005.jpg",
                 "link": "projects/26-threadframe/index.html",
+            }],
+            [{
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-01.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
             }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-05.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-08.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-09.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-10.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-11.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }, {
+                "image": "projects/24-uva-bone-marrow-treatment-unit/fd-uva-bone-marrow-unit-12.jpg",
+                "link": "projects/24-uva-bone-marrow-treatment-unit/index.html",
+            }],
+            [{
                 "image": "projects/23-telfair-childrens-art-museum/fd-tcam-00.jpg",
                 "link": "projects/23-telfair-childrens-art-museum/index.html",
             }, {
@@ -194,9 +217,6 @@
                 "link": "projects/21-hca-healing-garden/index.html"
             }, {
                 "image": "projects/21-hca-healing-garden/fd-healing-garden-13.jpg",
-                "link": "projects/21-hca-healing-garden/index.html"
-            }, {
-                "image": "projects/21-hca-healing-garden/fd-healing-garden-16.jpg",
                 "link": "projects/21-hca-healing-garden/index.html"
             }, {
                 "image": "projects/21-hca-healing-garden/fd-healing-garden-22.jpg",
@@ -836,4 +856,3 @@
                 "link": "projects/02-nartbox/index.html"
             }]
         ];
-
