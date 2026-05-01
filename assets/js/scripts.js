@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
   var currentSlideIndex = 0;
   var aboutBackLinkStorageKey = 'inwon:last-project-page';
   var footerTopButtonHtml = '<button type="button" class="footer-scroll-top" aria-label="Back to top"><span class="footer-scroll-top-arrow" aria-hidden="true">↑</span><span class="footer-scroll-top-label">Top</span></button>';
+  var footerYearStart = 1996;
   var imageAspectSelector = [
     '.section-about-img-item',
     '.main-project-img-item',
@@ -227,9 +228,21 @@ jQuery(document).ready(function(){
     }
   }
 
-  function initFooterTopButton() {
+  function initFooterMeta() {
+    var isHomePage = jQuery('body').hasClass('body-images');
+    var currentYear = new Date().getFullYear();
+    var footerYearText = footerYearStart + ' - ' + currentYear;
+
     jQuery('.footer-project-comment-container').each(function() {
-      jQuery(this).empty().append(footerTopButtonHtml);
+      var $container = jQuery(this);
+
+      $container.empty();
+
+      if (isHomePage) {
+        $container.append('<em>' + footerYearText + '</em>');
+      } else {
+        $container.append(footerTopButtonHtml);
+      }
     });
   }
 
@@ -358,7 +371,7 @@ jQuery(document).ready(function(){
   jQuery(window).on('pageshow', function() {
     rememberLastProjectPage();
   });
-  initFooterTopButton();
+  initFooterMeta();
   applyImageAspectSystem(document);
   initImageAspectObserver();
 });
