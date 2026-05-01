@@ -1,6 +1,10 @@
 jQuery(document).ready(function(){
   var $slidesContainer = jQuery('.slides-project-container');
-  var $slideImage = $slidesContainer.find('.slides-project-img-item');
+  var $slideGrouping = $slidesContainer.find('.slides-project-grouping').first();
+  var $slideImage = jQuery();
+  var $slidePrev = jQuery();
+  var $slideMain = jQuery();
+  var $slideNext = jQuery();
   var $mainProjectContainer = jQuery('.main-project-container');
   var galleryItems = [];
   var currentSlideIndex = 0;
@@ -138,16 +142,78 @@ jQuery(document).ready(function(){
     return -1;
   }
 
-  function renderSlide(index) {
-    if (!$slideImage.length || !galleryItems.length) {
+  function ensureGalleryLayout() {
+    var $existingSlide;
+
+    if (!$slideGrouping.length) {
       return;
     }
 
-    currentSlideIndex = index;
+    $slidesContainer.addClass('slides-project-container-vertical');
 
-    $slideImage
+    $existingSlide = $slideGrouping.find('.slides-project-img-item').first();
+
+    if (!$existingSlide.length) {
+      $existingSlide = jQuery('<div class="slides-project-img-item"></div>');
+      $slideGrouping.prepend($existingSlide);
+    }
+
+    $existingSlide
+      .attr('data-gallery-role', 'main')
+      .addClass('slides-project-img-item-main')
+      .removeClass('slides-project-img-item-prev slides-project-img-item-next');
+
+    if (!$slideGrouping.find('[data-gallery-role="prev"]').length) {
+      $existingSlide.before('<div class="slides-project-img-item slides-project-img-item-prev" data-gallery-role="prev"></div>');
+    }
+
+    if (!$slideGrouping.find('[data-gallery-role="next"]').length) {
+      $existingSlide.after('<div class="slides-project-img-item slides-project-img-item-next" data-gallery-role="next"></div>');
+    }
+
+    $slidePrev = $slideGrouping.find('[data-gallery-role="prev"]').first();
+    $slideMain = $slideGrouping.find('[data-gallery-role="main"]').first();
+    $slideNext = $slideGrouping.find('[data-gallery-role="next"]').first();
+    $slideImage = $slideGrouping.find('.slides-project-img-item');
+
+    $slidesContainer.find('.slides-project-counter').remove();
+  }
+
+  function renderSlide(index) {
+    var itemCount = galleryItems.length;
+    var previousIndex;
+    var nextIndex;
+
+    if (!$slideMain.length || !itemCount) {
+      return;
+    }
+
+    currentSlideIndex = (index + itemCount) % itemCount;
+    previousIndex = (currentSlideIndex - 1 + itemCount) % itemCount;
+    nextIndex = (currentSlideIndex + 1) % itemCount;
+
+    $slideMain
       .css('background-image', galleryItems[currentSlideIndex].imageUrl)
-      .attr('data-index', currentSlideIndex);
+      .attr('data-index', currentSlideIndex)
+      .attr('aria-label', 'Selected image ' + (currentSlideIndex + 1) + ' of ' + itemCount);
+
+    if ($slidePrev.length) {
+      $slidePrev
+        .css('background-image', galleryItems[previousIndex].imageUrl)
+        .attr('data-index', previousIndex)
+        .attr('aria-label', 'Previous image ' + (previousIndex + 1) + ' of ' + itemCount);
+    }
+
+    if ($slideNext.length) {
+      $slideNext
+        .css('background-image', galleryItems[nextIndex].imageUrl)
+        .attr('data-index', nextIndex)
+        .attr('aria-label', 'Next image ' + (nextIndex + 1) + ' of ' + itemCount);
+    }
+
+    $slideImage.each(function() {
+      applyImageAspect(this);
+    });
   }
 
   function openGallery(clickedElement) {
@@ -165,6 +231,7 @@ jQuery(document).ready(function(){
 
     renderSlide(currentSlideIndex);
     $slidesContainer.css('display', 'block');
+    jQuery('body').addClass('is-gallery-open');
     window.scrollTo(0, 48);
     $mainProjectContainer.addClass('main-project-container-hidden');
   }
@@ -178,6 +245,7 @@ jQuery(document).ready(function(){
 
     $exitImage = galleryItems[currentSlideIndex] ? jQuery(galleryItems[currentSlideIndex].element) : jQuery();
 
+    jQuery('body').removeClass('is-gallery-open');
     $mainProjectContainer.removeClass('main-project-container-hidden');
     $slidesContainer.css('display', 'none');
 
@@ -337,12 +405,59 @@ jQuery(document).ready(function(){
     openGallery(this);
   });
 
-  jQuery('.slides-project-img-item, .slides-project-group-icons-next').on('click', function() {
-    showNextSlide();
+  $slidesContainer.on('click', '.slides-project-img-item', function(e) {
+    var role = this.getAttribute('data-gallery-role');
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!isGalleryOpen()) {
+      return;
+    }
+
+    if (role === 'prev') {
+      showPreviousSlide();
+      return;
+    }
+
+    if (role === 'next') {
+      showNextSlide();
+      return;
+    }
   });
 
-  jQuery('.slides-project-group-icons-prev').on('click', function() {
-    showPreviousSlide();
+  $slidesContainer.on('click', function(e) {
+    if (!isGalleryOpen()) {
+      return;
+    }
+
+    if (jQuery(e.target).closest('.slides-project-img-item').length) {
+      return;
+    }
+
+    closeGallery();
+  });
+
+  $slidesContainer.on('wheel', function(e) {
+    var originalEvent;
+
+    if (!isGalleryOpen()) {
+      return;
+    }
+
+    originalEvent = e.originalEvent || {};
+
+    if (!originalEvent.deltaY) {
+      return;
+    }
+
+    e.preventDefault();
+
+    if (originalEvent.deltaY > 0) {
+      showNextSlide();
+    } else {
+      showPreviousSlide();
+    }
   });
 
   jQuery('.slides-project-group-icons-close').on('click keyup', function(e) {
@@ -358,6 +473,20 @@ jQuery(document).ready(function(){
   jQuery(document).keyup(function(e) {
     if (e.keyCode == 27 || e.key == 'Escape') {
       closeGallery();
+      return;
+    }
+
+    if (!isGalleryOpen()) {
+      return;
+    }
+
+    if (e.keyCode == 40 || e.key == 'ArrowDown' || e.keyCode == 39 || e.key == 'ArrowRight') {
+      showNextSlide();
+      return;
+    }
+
+    if (e.keyCode == 38 || e.key == 'ArrowUp' || e.keyCode == 37 || e.key == 'ArrowLeft') {
+      showPreviousSlide();
     }
   });
 
@@ -367,6 +496,7 @@ jQuery(document).ready(function(){
   });
 
   initAboutBackLink();
+  ensureGalleryLayout();
   rememberLastProjectPage();
   jQuery(window).on('pageshow', function() {
     rememberLastProjectPage();
