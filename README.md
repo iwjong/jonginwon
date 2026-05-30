@@ -1,8 +1,8 @@
-# iwjong.com
+# jonginwon.com or iwjong.com
 
 Personal portfolio of Inwon Jong.
 
-**Live:** [iwjong.com](https://www.iwjong.com)
+**Live:** [jonginwon.com](https://www.jonginwon.com) · [iwjong.com](https://www.iwjong.com)
 
 **Roles:** interaction designer, UI product designer, digital installation designer, exhibition designer, builder, creator, developer
 
@@ -59,6 +59,6 @@ Responsive breakpoints, lazy loading, and semantic metadata (Open Graph, structu
 
 ## What this repository is
 
-This repo is the source for [iwjong.com](https://www.iwjong.com), a static, designer-maintained portfolio. It is a personal design archive, not a case-study blog, agency site, or component library.
+This repo is the source for [jonginwon.com](https://www.jonginwon.com) and [iwjong.com](https://www.iwjong.com), a static, designer-maintained portfolio. It is a personal design archive, not a case-study blog, agency site, or component library.
 
 For deployment and DNS setup, see [docs/deploy.md](docs/deploy.md).
