@@ -1,68 +1,62 @@
-# Deploying with GitHub Pages
+# jonginwon.com
 
-This guide outlines the process for publishing this repository using GitHub Pages and connecting it to the custom domain iwjong.com.
+Personal portfolio of Inwon Jong — interaction designer, Co-founder and Chief Design Officer at [FREN Inc.](https://www.jonginwon.com/about/)
 
-## 1. Enable GitHub Pages
+**Live:** [jonginwon.com](https://www.jonginwon.com)
 
-- Navigate to the repository: https://github.com/iwjong/jonginwon
-- Go to Settings → Pages
-- Under Build and deployment:
-  - Source: Deploy from a branch
-  - Branch: main (or gh-pages)
-  - Folder: / (root)
-- Save the configuration
+---
 
-## 2. Configure Custom Domain
+## Why this site exists
 
-- In Pages settings, set the custom domain:
-  iwjong.com
-- Save to generate the CNAME file in the repository
+After years of designing at scale — mobile products at Samsung Electronics across 30+ projects, platform-level UX structure, and interaction frameworks built for millions of devices — I wanted a portfolio that reflects how I practice design today: simple structures, high-impact moments, and room for the work to speak first.
 
-## 3. Verify Domain Ownership
+At FREN, that practice centers on immersive experiences for children's museums and pediatric healthcare — environments where interaction must be clear, emotional, and humane. This site applies the same thinking to how the work is presented. It is not a résumé layout or a searchable project directory. It is a curated archive of interaction, identity, and experience design — presented the way I would walk someone through a physical exhibition.
 
-Create a TXT record in your DNS provider:
+## Why it stays minimal
 
-- Type: TXT
-- Name: _github-pages-challenge-iwjong
-- Value: 054cbdec54ae268f0352726aacb752
+The restraint is deliberate, not decorative.
 
-Allow time for DNS propagation, then complete verification in GitHub.
+**Navigation stays out of the way.** Only the name and About appear in the header. There are no category menus, filters, or sidebars competing with the work. The visitor's attention belongs to the projects, not the interface chrome.
 
-## 4. Configure DNS
+**The home page favors discovery over sorting.** Images from every project are shuffled into a continuous feed. There is no chronological index or taxonomy to browse through first. Scroll, notice, click — the experience is closer to wandering a gallery than scanning a table of contents.
 
-If using Squarespace as the DNS provider, configure the following records:
+**Each project page follows one editorial rhythm.** Title, year, a brief paragraph of context, then a vertical sequence of visuals. The structure is consistent; the length and pacing vary with each story. A full-screen slide viewer handles detail inspection without breaking the scroll narrative.
 
-A Records (root domain):
-- Host: @ → 185.199.108.153
-- Host: @ → 185.199.109.153
-- Host: @ → 185.199.110.153
-- Host: @ → 185.199.111.153
+**The build stays static and direct.** Plain HTML, shared CSS, and image assets — no CMS, no framework overhead. The layout system is the product. Updates stay lightweight, and the presentation remains under full design control.
 
-CNAME Record (www):
-- Host: www → iwjong.github.io
+Minimal here means intentional reduction: fewer decisions for the visitor, more space for the work.
 
-Ensure no conflicting DNS records remain.
+## Layout as communication
 
-## 5. Enable HTTPS
+The site uses a small set of surfaces, each with a distinct role:
 
-- In GitHub Pages settings, enable "Enforce HTTPS"
+| Surface | Role |
+|---------|------|
+| Home feed | Discovery — unexpected connections between projects as you scroll |
+| Project page | Story — context first, then a sequential visual narrative |
+| Slide viewer | Inspection — focused, full-screen detail on demand |
+| About | Practice — background, current work, and contact |
 
-## 6. Deployment Workflow
+On project pages, feature images follow a shared naming convention (`fd-*`) and markup pattern (`main-project-*`). Every project reads with the same typographic and spatial rhythm while allowing its own length and image count. The home feed pulls from the same image pools, shuffled across projects so no single body of work dominates the entry experience.
 
-All changes pushed to the configured branch are automatically deployed:
+Responsive breakpoints, lazy loading, and semantic metadata (Open Graph, structured data, sitemap) support findability and performance without adding visible UI.
 
-git add .
-git commit -m "update"
-git push origin main
+## Design principles
 
-## 7. Access
+1. **Work before chrome** — the interface should never explain itself at the expense of the projects
+2. **Consistent narrative rhythm** — shared structure across projects, flexible content within it
+3. **Discovery over taxonomy** — browse and encounter; don't categorize and filter
+4. **Long-lived publishing** — a site that can be maintained for years without platform dependency
+5. **Quiet infrastructure** — accessibility, SEO, and performance handled beneath the surface
 
-- https://iwjong.com
-- https://www.iwjong.com
-- https://jonginwon.com
+## How to read this site
 
-## Notes
+- **Home** — scroll the image feed; click any image to enter a project
+- **Project pages** — read the short context, follow the visual sequence; open the slide viewer for closer inspection
+- **About** — background on FREN, prior work at Samsung, and how to connect
 
-- Do not include the full domain in the TXT record name
-- Ensure an index.html file exists in the repository root
-- DNS propagation may take up to 24 hours
+## What this repository is
+
+This repo is the source for [jonginwon.com](https://www.jonginwon.com) — a static, designer-maintained portfolio. It is a personal design archive, not a case-study blog, agency site, or component library.
+
+For deployment and DNS setup, see [docs/deploy.md](docs/deploy.md).
