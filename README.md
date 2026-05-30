@@ -1,4 +1,4 @@
-# jonginwon.com or iwjong.com
+# jonginwon.com
 
 Personal portfolio of Inwon Jong.
 
