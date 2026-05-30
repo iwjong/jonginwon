@@ -2647,6 +2647,8 @@ body.body-main .slides-project-container.slides-project-container-vertical .slid
 .footer-project-left-img,
 .footer-project-right-img {
   overflow: visible;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
 }
 
 .footer-project-title,
