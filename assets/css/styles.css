@@ -2469,6 +2469,7 @@
 body.body-main {
   --detail-image-width: 16rem;
   --detail-text-width: 16rem;
+  --project-image-max-width: 960px;
   --project-image-top-gap: 4em;
   --project-feature-top-gap: 4em;
 }
@@ -2486,10 +2487,16 @@ body.body-main .main-project-text-container {
   max-width: 100%;
 }
 
-body.body-main .section-about-img-wrapper,
-body.body-main .main-project-img-wrapper {
+body.body-main .section-about-img-wrapper {
   width: var(--detail-image-width);
   max-width: 100%;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+body.body-main .main-project-img-wrapper {
+  width: var(--detail-image-width);
+  max-width: min(100%, var(--project-image-max-width));
   margin: 0 auto;
   padding-top: 0;
 }
@@ -2510,13 +2517,13 @@ body.body-main .main-project-img-item-feature {
 }
 
 body.body-main .slides-project-img-item {
-  width: min(var(--detail-image-width), calc(100vw - 8rem));
-  max-width: var(--detail-image-width);
+  width: min(var(--detail-image-width), calc(100vw - 8rem), var(--project-image-max-width));
+  max-width: min(var(--detail-image-width), var(--project-image-max-width));
 }
 
 body.body-main .slides-project-img-item.image-aspect-portrait {
-  width: calc(min(var(--detail-image-width), calc(100vw - 8rem)) * 678 / 960);
-  max-width: calc((100vw - 8rem) * 678 / 960);
+  width: calc(min(var(--detail-image-width), calc(100vw - 8rem), var(--project-image-max-width)) * 678 / 960);
+  max-width: calc(min(var(--project-image-max-width), calc(100vw - 8rem)) * 678 / 960);
 }
 
 body.body-main .slides-project-container.slides-project-container-vertical {
