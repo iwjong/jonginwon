@@ -59,6 +59,7 @@ git push origin main
 
 - https://iwjong.com
 - https://www.iwjong.com
+- https://jonginwon.com
 
 ## Notes
 
