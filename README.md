@@ -1,64 +1,123 @@
 # jonginwon.com
 
-Personal portfolio of Inwon Jong.
+**My personal design archive since 2015.**
 
 **Live:** [jonginwon.com](https://www.jonginwon.com) · [iwjong.com](https://www.iwjong.com)
-
-**Roles:** interaction designer, UI product designer, digital installation designer, exhibition designer, builder, creator, developer
 
 ---
 
 ## Why this site exists
 
-This portfolio spans mobile product interfaces, digital installations, exhibitions, and built environments. Rather than summarizing that range in a résumé layout or role-based menu, the site lets the work carry the story. Browse the projects and the breadth of practice becomes clear on its own.
+I first created jonginwon.com in 2015, when I began studying abroad at a later stage in my life and career.
 
-It is a curated archive, not a searchable directory. The goal is for visitors to enter through the work, follow what interests them, and arrive at a fuller picture of experience and career without reading a bio first.
+At the time, I needed a place to bring together work that had been created across different periods, places, and disciplines. What started as a simple portfolio became a way to preserve that journey and to keep a record of how my work and thinking were changing over time.
 
-## Why it stays minimal
+Since then, the site has grown alongside my practice.
 
-The restraint is deliberate, not decorative.
+My work has never belonged to a single category. Interfaces led to interactions. Interactions expanded into digital installations, exhibitions, and eventually physical environments. Rather than separating those experiences into different identities or roles, this website keeps them together as one continuous body of work.
 
-**Navigation stays out of the way.** Only the name and About appear in the header. There are no category menus, filters, or sidebars competing with the work. The visitor's attention belongs to the projects, not the interface chrome.
+It is a portfolio, but more importantly, it is a personal archive.
 
-**The home page favors discovery over sorting.** Images from every project are shuffled into a continuous feed. There is no chronological index or taxonomy to browse through first. Scroll, notice, click: the experience is closer to wandering a gallery than scanning a table of contents.
+---
 
-**Each project page follows one editorial rhythm.** Title, year, a brief paragraph of context, then a vertical sequence of visuals. The structure is consistent; the length and pacing vary with each story. A full-screen slide viewer handles detail inspection without breaking the scroll narrative.
+## A place for the work to live
 
-**The build stays static and direct.** Plain HTML, shared CSS, and image assets. No CMS, no framework overhead. The layout system is the product. Updates stay lightweight, and the presentation remains under full design control.
+I have never thought of this site as a résumé translated onto a screen.
 
-Minimal here means intentional reduction: fewer decisions for the visitor, more space for the work.
+A résumé compresses a career into titles, dates, and responsibilities. This archive is meant to do something different. It allows individual projects, images, experiments, and experiences to remain visible and connected.
 
-## Layout as communication
+Some projects represent major milestones. Others capture a particular idea, process, collaboration, or moment in my development as a designer.
 
-The site uses a small set of surfaces, each with a distinct role:
+Together, they form a record that is more complete than any single biography or job title could be.
 
-| Surface | Role |
-|---------|------|
-| Home feed | Discovery: unexpected connections between projects as you scroll |
-| Project page | Story: context first, then a sequential visual narrative |
-| Slide viewer | Inspection: focused, full-screen detail on demand |
-| About | Background, career detail, and contact |
+The purpose of the site is not to explain everything immediately. It is to let someone enter through the work, follow what interests them, and gradually understand the larger practice behind it.
 
-On project pages, feature images follow a shared naming convention (`fd-*`) and markup pattern (`main-project-*`). Every project reads with the same typographic and spatial rhythm while allowing its own length and image count. The home feed pulls from the same image pools, shuffled across projects so no single body of work dominates the entry experience.
+---
 
-Responsive breakpoints, lazy loading, and semantic metadata (Open Graph, structured data, sitemap) support findability and performance without adding visible UI.
+## Why it remains minimal
+
+The simplicity of the site is intentional.
+
+For me, minimalism has never meant making something look empty. It means removing what competes with the experience.
+
+The work should appear before the interface.
+
+Images should have room to breathe. Navigation should be understandable without becoming the focus. Typography, spacing, sequence, and movement should quietly establish rhythm rather than call attention to themselves.
+
+There are no elaborate category systems or layers of interface designed to explain how the portfolio should be explored. The experience is closer to walking through a gallery: notice something, move toward it, spend time with it, and continue.
+
+Fewer decisions for the visitor create more space for the work.
+
+---
+
+## Designed by hand
+
+The visual language of this site was established long before generative AI became part of everyday creative practice.
+
+Its simplicity did not come from an AI-generated layout, a portfolio template, or an automated design system. It developed gradually through years of arranging images, adjusting proportions and spacing, rewriting project pages, and deciding what could be removed.
+
+That process matters to me.
+
+I have always maintained and shaped the site myself, not because building a website is the point, but because designing the space that holds the work is part of the work itself.
+
+The relationship between image, space, sequence, typography, and navigation reflects the same decisions I make when designing an interface, an installation, or a physical experience.
+
+The website is therefore not only a container for my projects. It is also one of them.
+
+---
+
+## An evolving archive
+
+I do not consider this site a finished portfolio.
+
+New work enters the archive. Older work takes on different meaning when seen beside newer projects. My interests move between digital products, interaction, technology, installations, exhibitions, and physical environments, and the archive changes with them.
+
+What remains consistent is the intention behind it: to create a quiet, independent place where the work can exist without unnecessary explanation or distraction.
+
+The website has no real final version because my practice does not have one.
+
+---
 
 ## Design principles
 
-1. **Work before chrome:** the interface should never explain itself at the expense of the projects
-2. **Consistent narrative rhythm:** shared structure across projects, flexible content within it
-3. **Discovery over taxonomy:** browse and encounter; don't categorize and filter
-4. **Long-lived publishing:** a site that can be maintained for years without platform dependency
-5. **Quiet infrastructure:** accessibility, SEO, and performance handled beneath the surface
+**Let the work speak first.**  
+The interface should support the work, not compete with it.
 
-## How to read this site
+**Remove before adding.**  
+Clarity often comes from deciding what is unnecessary.
 
-- **Home:** scroll the image feed; click any image to enter a project
-- **Project pages:** read the short context, follow the visual sequence; open the slide viewer for closer inspection
-- **About:** career background, awards, research, and how to connect
+**Design the sequence, not only the screen.**  
+Experience is shaped by order, rhythm, scale, transition, and time.
 
-## What this repository is
+**Discovery over classification.**  
+Not every project needs to be placed inside a category before it can be understood.
 
-This repo is the source for [jonginwon.com](https://www.jonginwon.com) and [iwjong.com](https://www.iwjong.com), a static, designer-maintained portfolio. It is a personal design archive, not a case-study blog, agency site, or component library.
+**Keep the archive independent.**  
+The work should not depend on a platform, template, or trend in order to remain accessible.
 
-For deployment and DNS setup, see [docs/deploy.md](docs/deploy.md).
+**Design for longevity.**  
+A personal archive should be able to grow for years without constantly reinventing its identity.
+
+---
+
+## About my practice
+
+My background spans interaction design, UI and digital products, immersive installations, exhibitions, and experience design within physical environments.
+
+Although the medium changes, the underlying question is usually the same:
+
+**How should people experience and interact with what has been designed?**
+
+That question has connected much of my work over the years, from screens and interfaces to sensors, spatial media, architecture, and built environments.
+
+jonginwon.com is where those different parts of the practice remain connected.
+
+---
+
+## About this repository
+
+This repository contains the source for [jonginwon.com](https://www.jonginwon.com) and [iwjong.com](https://www.iwjong.com).
+
+It is the working archive behind a designer-maintained personal portfolio, continuously built and curated since 2015.
+
+For deployment and domain configuration, see [docs/deploy.md](docs/deploy.md).
